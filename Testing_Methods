@@ -1,0 +1,63 @@
+##在线测试 示例操作步骤
+假设你使用的是 Flask，以下是一个完整的示例步骤：
+
+1.启动 Flask 开发服务器：
+
+
+export FLASK_APP=app.py
+export FLASK_ENV=development
+flask run
+
+2.安装并配置 livereload（可选）：
+
+pip install flask-livereload
+
+3.在浏览器中打开：访问 
+http://127.0.0.1:5000/ 
+查看你的应用程序。
+
+4.修改文件并保存：当你保存文件时，浏览器会自动刷新显示最新更改（如果使用了 livereload）。
+
+5.使用浏览器开发工具：打开浏览器的开发者工具进行调试和测试。
+
+## RUN FLASK
+
+1.先导向到包含requirements.txt 的目录
+
+cd /Users/sunzhengying/Documents/GitHub/MOS-Task-Manager
+
+pip install -r requirements.txt
+
+2.导向到包含app.py的目录task-manager
+
+cd /Users/sunzhengying/Documents/GitHub/MOS-Task-Manager/task-manager
+
+export FLASK_APP=app.py
+export FLASK_ENV=development
+
+flask run
+
+##虚拟环境测试
+1.
+python3 -m venv venv
+cd /Users/sunzhengying/Documents/GitHub/MOS-Task-Manager/task-manager
+
+2.
+source venv/bin/activate
+
+3.
+pip install -r requirements.txt
+
+4.
+
+export FLASK_APP=app.py
+export FLASK_ENV=development
+
+5.
+python app.py
+
+## Terminate Server
+Ctrl+C
+
+## Deactivate the Virtual Environment
+deactivate
