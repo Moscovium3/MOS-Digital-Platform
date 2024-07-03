@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Welcome, {{ current_user.username }}</h2>
+<form method="POST" action="{{ url_for('add_task') }}">
+    <input type="text" name="task" placeholder="Enter a new task" required>
+    <select name="priority">
+        <option value="Low">Low</option>
+        <option value="Medium" selected>Medium</option>
+        <option value="High">High</option>
+    </select>
+    <input type="date" name="due_date">
+    <input type="text" name="tags" placeholder="Tags">
+    <button type="submit">Add Task</button>
+</form>
+<ul>
+    {% for task in tasks %}
+    <li>
+        {{ task.text }} ({{ task.priority }}) - Due: {{ task.due_date }} - Tags: {{ task.tags }}
+        {% if not task.completed %}
+        <a href="{{ url_for('complete_task', task_id=task.id) }}">Complete</a>
+        {% endif %}
+        <a href="{{ url_for('delete_task', task_id=task.id) }}">Delete</a>
+    </li>
+    {% endfor %}
+</ul>
+<a href="{{ url_for('logout') }}">Logout</a>
+{% endblock %}
